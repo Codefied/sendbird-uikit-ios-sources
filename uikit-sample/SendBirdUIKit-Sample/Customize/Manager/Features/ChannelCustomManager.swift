@@ -24,6 +24,8 @@ class ChannelCustomManager: BaseCustomManager {
             messageListParamsCustom()
         case .messageParams:
             messageParamsCustom()
+        case .messageMentions:
+            messageMentionsCustom()
         case .functionOverriding:
             functionOverridingCustom()
         default:
@@ -110,6 +112,26 @@ extension ChannelCustomManager {
             self.navigationController?.pushViewController(channelVC, animated: true)
         }
     }
+
+    func messageMentionsCustom() {
+      ChannelManager.getSampleChannel { channel in
+        let channelVC = ChannelVC_MessageParam(channel: channel)
+
+        // This part changes the default user message cell to a custom cell.
+        #if swift(>=5.2)
+        channelVC.register(userMessageCell: CustomUserMessageCell())
+        #else
+        channelVC.register(userMessageCell: CustomUserMessageCell(
+                            style: .default,
+                            reuseIdentifier: CustomUserMessageCell.sbu_className)
+        )
+        #endif
+
+        // Move to ChannelViewController using customized components
+        self.navigationController?.pushViewController(channelVC, animated: true)
+      }
+    }
+
     
     func functionOverridingCustom() {
         ChannelManager.getSampleChannel { channel in
