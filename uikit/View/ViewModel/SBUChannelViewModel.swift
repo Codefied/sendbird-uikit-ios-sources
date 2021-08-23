@@ -529,7 +529,7 @@ class SBUChannelViewModel: SBULoadableViewModel {
     // MARK: - Typing
     func startTypingMessage() {
         guard let channel = self.channel as? SBDGroupChannel else { return }
-        SBULog.info("[Request] End typing")
+        SBULog.info("[Request] Start typing")
         channel.startTyping()
     }
     
