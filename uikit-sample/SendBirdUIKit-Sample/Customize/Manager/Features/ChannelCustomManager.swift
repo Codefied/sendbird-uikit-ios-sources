@@ -115,7 +115,7 @@ extension ChannelCustomManager {
 
     func messageMentionsCustom() {
       ChannelManager.getSampleChannel { channel in
-        let channelVC = ChannelVC_MessageParam(channel: channel)
+        let channelVC = ChannelVC_MessageMentions(channel: channel)
 
         // This part changes the default user message cell to a custom cell.
         #if swift(>=5.2)

@@ -190,6 +190,7 @@
 		C6D3DDB526141C00003E6DCB /* SBUChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DD5E26141C00003E6DCB /* SBUChannelSettingsViewController.swift */; };
 		C6D3DDB626141C00003E6DCB /* SBUCreateChannelTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DD6026141C00003E6DCB /* SBUCreateChannelTypeSelector.swift */; };
 		C6D3DDB726141C00003E6DCB /* SBUCreateChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DD6126141C00003E6DCB /* SBUCreateChannelViewController.swift */; };
+		DDA4077A26D42478009F37A4 /* ChannelVC_MessageMentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -383,6 +384,7 @@
 		C6D3DD6026141C00003E6DCB /* SBUCreateChannelTypeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBUCreateChannelTypeSelector.swift; sourceTree = "<group>"; };
 		C6D3DD6126141C00003E6DCB /* SBUCreateChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBUCreateChannelViewController.swift; sourceTree = "<group>"; };
 		D9AA853E66DC6613E1CCFB10 /* Pods-SendBirdUIKit-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.release.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVC_MessageMentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				9C56415324AF99E70057B529 /* ChannelVC_MessageParam.swift */,
+				DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */,
 				9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */,
 				9C56415624B371880057B529 /* SubView */,
 			);
@@ -1317,6 +1320,7 @@
 				C6D3DC7D261411EA003E6DCB /* SBUAvailable.swift in Sources */,
 				C6D3DD9D26141C00003E6DCB /* SBUCommonItem.swift in Sources */,
 				A9A3AEAC256A532700007FC2 /* SBDOpenChannel+Ext.swift in Sources */,
+				DDA4077A26D42478009F37A4 /* ChannelVC_MessageMentions.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
 				C6D3DD9C26141C00003E6DCB /* SBUCoverImageView.swift in Sources */,
 				C6D3DDB126141C00003E6DCB /* SBUChannelSettingCell.swift in Sources */,
