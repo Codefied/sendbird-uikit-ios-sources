@@ -17,6 +17,7 @@ import AVKit
     @objc optional func messageInputView(_ messageInputView: SBUMessageInputView, didSelectEdit text: String)
     @objc optional func messageInputViewDidStartTyping()
     @objc optional func messageInputViewDidEndTyping()
+    @objc optional func messageDidChange(_ messageInputView: SBUMessageInputView)
 }
 
 @objcMembers
@@ -526,6 +527,8 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
             
             self.layoutIfNeeded()
         }
+
+      self.delegate?.messageDidChange?(self)
     }
 
     public func textViewDidEndEditing(_ textView: UITextView) {
