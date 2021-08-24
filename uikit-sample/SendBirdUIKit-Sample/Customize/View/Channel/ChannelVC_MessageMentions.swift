@@ -10,6 +10,18 @@ import UIKit
 import SendBirdSDK
 
 class ChannelVC_MessageMentions: SBUChannelViewController {
+  var userIDsToMention: [String] = []
+
+  override func messageInputView(_ messageInputView: SBUMessageInputView, didSelectSend text: String) {
+    guard text.count > 0 else { return }
+    let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard let messageParam = SBDUserMessageParams(message: text) else { return }
+    messageParam.mentionedUserIds = userIDsToMention
+
+    self.sendUserMessage(messageParams: messageParam)
+    userIDsToMention = []
+  }
+
   func matches(for regex: String, in text: String) -> [String] {
     do {
       let regex = try NSRegularExpression(pattern: regex)
@@ -30,10 +42,11 @@ class ChannelVC_MessageMentions: SBUChannelViewController {
     if let text = messageInputView.textView?.text {
       let mentionPattern = #"\B@\S+"#
       let mentionResult = matches(for: mentionPattern, in: text)
-      let hasMentions = (mentionResult.count > 0)
+      // let hasMentions = (mentionResult.count > 0)
 
-      print("mentions:", mentionResult)
-      print("hasMentions: \(hasMentions)")
+      userIDsToMention = mentionResult.map { String($0.dropFirst()) }
+    } else {
+      userIDsToMention = []
     }
   }
 }
