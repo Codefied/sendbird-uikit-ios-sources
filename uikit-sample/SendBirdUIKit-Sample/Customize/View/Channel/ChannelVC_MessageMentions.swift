@@ -10,22 +10,30 @@ import UIKit
 import SendBirdSDK
 
 class ChannelVC_MessageMentions: SBUChannelViewController {
-    override func messageInputView(_ messageInputView: SBUMessageInputView, didSelectSend text: String) {
-        guard text.count > 0 else { return }
-        let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let messageParam = SBDUserMessageParams(message: text) else { return }
-        
-        let alert = UIAlertController(title: "Highlight message", message: "Would you like to send it as a Highlight message?", preferredStyle: .alert)
-        let sendAction = UIAlertAction(title: "No", style: .default) { [weak self] action in
-            self?.sendUserMessage(messageParams: messageParam)
-        }
-        let highlightAction = UIAlertAction(title: "YES", style: .default) { [weak self] action in
-            messageParam.customType = "highlight"
-            self?.sendUserMessage(messageParams: messageParam)
-        }
-        alert.addAction(sendAction)
-        alert.addAction(highlightAction)
-        
-        self.present(alert, animated: true, completion: nil)
+  func matches(for regex: String, in text: String) -> [String] {
+    do {
+      let regex = try NSRegularExpression(pattern: regex)
+      let results = regex.matches(
+        in: text,
+        range: NSRange(text.startIndex..., in: text)
+      )
+      return results.map {
+        String(text[Range($0.range, in: text)!])
+      }
+    } catch let error {
+      print("invalid regex: \(error.localizedDescription)")
+      return []
     }
+  }
+
+  func messageDidChange(_ messageInputView: SBUMessageInputView) {
+    if let text = messageInputView.textView?.text {
+      let mentionPattern = #"\B@\S+"#
+      let mentionResult = matches(for: mentionPattern, in: text)
+      let hasMentions = (mentionResult.count > 0)
+
+      print("mentions:", mentionResult)
+      print("hasMentions: \(hasMentions)")
+    }
+  }
 }
