@@ -191,6 +191,11 @@
 		C6D3DDB626141C00003E6DCB /* SBUCreateChannelTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DD6026141C00003E6DCB /* SBUCreateChannelTypeSelector.swift */; };
 		C6D3DDB726141C00003E6DCB /* SBUCreateChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DD6126141C00003E6DCB /* SBUCreateChannelViewController.swift */; };
 		DDA4077A26D42478009F37A4 /* ChannelVC_MessageMentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */; };
+		E145353A26D6732200A44135 /* MessageUserMentionsSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145353926D6732200A44135 /* MessageUserMentionsSuggestionsView.swift */; };
+		E149490A26D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149490926D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift */; };
+		E149490C26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */; };
+		E149491026D7C7A800421AF6 /* SuggestionsMessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149490F26D7C7A800421AF6 /* SuggestionsMessageInputView.swift */; };
+		E149491226D9032900421AF6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149491126D9032900421AF6 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,6 +390,11 @@
 		C6D3DD6126141C00003E6DCB /* SBUCreateChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBUCreateChannelViewController.swift; sourceTree = "<group>"; };
 		D9AA853E66DC6613E1CCFB10 /* Pods-SendBirdUIKit-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.release.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVC_MessageMentions.swift; sourceTree = "<group>"; };
+		E145353926D6732200A44135 /* MessageUserMentionsSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserMentionsSuggestionsView.swift; sourceTree = "<group>"; };
+		E149490926D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserMentionSuggestionsTableViewDataSource.swift; sourceTree = "<group>"; };
+		E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserMentionSuggestionsTableViewDelegate.swift; sourceTree = "<group>"; };
+		E149490F26D7C7A800421AF6 /* SuggestionsMessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsMessageInputView.swift; sourceTree = "<group>"; };
+		E149491126D9032900421AF6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,9 +607,10 @@
 			isa = PBXGroup;
 			children = (
 				9C56415324AF99E70057B529 /* ChannelVC_MessageParam.swift */,
-				DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */,
 				9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */,
+				DDA4077926D42478009F37A4 /* ChannelVC_MessageMentions.swift */,
 				9C56415624B371880057B529 /* SubView */,
+				E145353826D672FE00A44135 /* Mentions */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -1111,6 +1122,18 @@
 			path = CreateChannel;
 			sourceTree = "<group>";
 		};
+		E145353826D672FE00A44135 /* Mentions */ = {
+			isa = PBXGroup;
+			children = (
+				E149490F26D7C7A800421AF6 /* SuggestionsMessageInputView.swift */,
+				E145353926D6732200A44135 /* MessageUserMentionsSuggestionsView.swift */,
+				E149490926D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift */,
+				E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */,
+				E149491126D9032900421AF6 /* UIView+Extensions.swift */,
+			);
+			path = Mentions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1264,6 +1287,7 @@
 				C6D3DC6F261411EA003E6DCB /* UIImage+SBUIKit.swift in Sources */,
 				9CC8E2F52510C53A00C038A5 /* MySettingsCell.swift in Sources */,
 				C6D3DC84261411EA003E6DCB /* SBUPermissionManager.swift in Sources */,
+				E149490C26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift in Sources */,
 				9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */,
 				9CED4D0B24ADE36100D81B10 /* ChannelListVC_Overriding.swift in Sources */,
 				C6D3DC8D261411EA003E6DCB /* SBUTheme.swift in Sources */,
@@ -1289,6 +1313,7 @@
 				9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */,
 				C6D3DC73261411EA003E6DCB /* UIViewController+SBUIKit.swift in Sources */,
 				C6D3DDB426141C00003E6DCB /* SBUBaseChannelSettingViewController.swift in Sources */,
+				E149491026D7C7A800421AF6 /* SuggestionsMessageInputView.swift in Sources */,
 				9CED4D1C24ADE69900D81B10 /* CustomChannelListCell.swift in Sources */,
 				9C2AA7E325611A8200C6F6CB /* MainOpenChannelTabbarController.swift in Sources */,
 				C6D3DD9726141C00003E6DCB /* SBUNewMessageInfo.swift in Sources */,
@@ -1323,6 +1348,7 @@
 				DDA4077A26D42478009F37A4 /* ChannelVC_MessageMentions.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
 				C6D3DD9C26141C00003E6DCB /* SBUCoverImageView.swift in Sources */,
+				E149490A26D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift in Sources */,
 				C6D3DDB126141C00003E6DCB /* SBUChannelSettingCell.swift in Sources */,
 				9C0E9688268B21B5002B50F4 /* SBUToastManager.swift in Sources */,
 				9C32648124B37DD2000F8313 /* CustomUserMessageCell.swift in Sources */,
@@ -1346,6 +1372,7 @@
 				9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */,
 				C6D3DDA826141C00003E6DCB /* SBULoading.swift in Sources */,
 				C6D3DC72261411EA003E6DCB /* Float+SBUKit.swift in Sources */,
+				E149491226D9032900421AF6 /* UIView+Extensions.swift in Sources */,
 				C6D3DDA726141C00003E6DCB /* SBUUserCell.swift in Sources */,
 				C6D3DD8626141C00003E6DCB /* SBUFileMessageCell.swift in Sources */,
 				9CDDA31724B6F39700F77A59 /* CustomNewMessageInfo.swift in Sources */,
@@ -1417,6 +1444,7 @@
 				C6D3DD6F26141C00003E6DCB /* SBUChannelListViewController.swift in Sources */,
 				C6D3DD7126141C00003E6DCB /* SBUUserProfileView.swift in Sources */,
 				C6D3DD8426141C00003E6DCB /* SBUOpenChannelUnknownMessageCell.swift in Sources */,
+				E145353A26D6732200A44135 /* MessageUserMentionsSuggestionsView.swift in Sources */,
 				C6D3DDAC26141C00003E6DCB /* SBUMessageSearchViewController.swift in Sources */,
 				C6D3DD7F26141C00003E6DCB /* SBUBaseMessageCell.swift in Sources */,
 				9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */,

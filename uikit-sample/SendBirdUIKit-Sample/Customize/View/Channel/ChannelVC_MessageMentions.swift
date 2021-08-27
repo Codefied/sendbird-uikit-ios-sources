@@ -10,8 +10,24 @@ import UIKit
 import SendBirdSDK
 
 class ChannelVC_MessageMentions: SBUChannelViewController {
+  
+  // MARK:- Views
+  
+  private var suggestionsMessageInputView: SuggestionsMessageInputView? {
+    messageInputView as? SuggestionsMessageInputView
+  }
+  
+  // MARK:- Properties
+  
   var userIDsToMention: [String] = []
-
+  
+  // MARK: - Lifecycle
+  
+  override func loadView() {
+    messageInputView = SuggestionsMessageInputView()
+    super.loadView()
+  }
+  
   override func messageInputView(_ messageInputView: SBUMessageInputView, didSelectSend text: String) {
     guard text.count > 0 else { return }
     let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -37,16 +53,31 @@ class ChannelVC_MessageMentions: SBUChannelViewController {
       return []
     }
   }
-
+  
   func messageDidChange(_ messageInputView: SBUMessageInputView) {
+    
+    suggestionsMessageInputView?.mentionsSuggestionsView.suggestedUsers = channel?.members?.sbu_convertUserList()
+    
     if let text = messageInputView.textView?.text {
       let mentionPattern = #"\B@\S+"#
       let mentionResult = matches(for: mentionPattern, in: text)
       // let hasMentions = (mentionResult.count > 0)
-
       userIDsToMention = mentionResult.map { String($0.dropFirst()) }
     } else {
       userIDsToMention = []
     }
+  }
+}
+
+extension ChannelVC_MessageMentions { // SBUMessageInputViewDelegate
+  
+  override func messageInputViewDidStartTyping() {
+    super.messageInputViewDidStartTyping()
+    suggestionsMessageInputView?.showSuggestions()
+  }
+  
+  override func messageInputViewDidEndTyping() {
+    super.messageInputViewDidEndTyping()
+    suggestionsMessageInputView?.hideSuggestions()
   }
 }
