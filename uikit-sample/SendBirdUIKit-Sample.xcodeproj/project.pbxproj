@@ -196,6 +196,7 @@
 		E149490C26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */; };
 		E149491026D7C7A800421AF6 /* SuggestionsMessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149490F26D7C7A800421AF6 /* SuggestionsMessageInputView.swift */; };
 		E149491226D9032900421AF6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149491126D9032900421AF6 /* UIView+Extensions.swift */; };
+		E149491426DD034400421AF6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149491326DD034400421AF6 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -395,6 +396,7 @@
 		E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserMentionSuggestionsTableViewDelegate.swift; sourceTree = "<group>"; };
 		E149490F26D7C7A800421AF6 /* SuggestionsMessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsMessageInputView.swift; sourceTree = "<group>"; };
 		E149491126D9032900421AF6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		E149491326DD034400421AF6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1130,6 +1132,7 @@
 				E149490926D6850400421AF6 /* MessageUserMentionSuggestionsTableViewDataSource.swift */,
 				E149490B26D6851700421AF6 /* MessageUserMentionSuggestionsTableViewDelegate.swift */,
 				E149491126D9032900421AF6 /* UIView+Extensions.swift */,
+				E149491326DD034400421AF6 /* String+Extensions.swift */,
 			);
 			path = Mentions;
 			sourceTree = "<group>";
@@ -1301,6 +1304,7 @@
 				C6D3DC6E261411EA003E6DCB /* Formatter+SBUIKit.swift in Sources */,
 				9C33BD75265E4D41005FB11F /* String+SBUIKit.swift in Sources */,
 				C6D3DDAB26141C00003E6DCB /* SBUInviteUserViewController.swift in Sources */,
+				E149491426DD034400421AF6 /* String+Extensions.swift in Sources */,
 				C6D3DDB226141C00003E6DCB /* SBUModerationsViewController.swift in Sources */,
 				9C2AA7E82561255800C6F6CB /* StreamingChannelListViewController.swift in Sources */,
 				C6D3DC90261411EA003E6DCB /* SBUHighlightMessageInfo.swift in Sources */,

@@ -21,6 +21,12 @@ class ChannelVC_MessageMentions: SBUChannelViewController {
   
   var userIDsToMention: [String] = []
   
+  private var membersNicknames: Set<String> {
+    guard let members = channel?.members as? [SBDMember] else { return Set<String>([]) }
+    let membersNicknames = members.compactMap { $0.nickname }
+    return Set<String>(membersNicknames)
+  }
+  
   // MARK: - Lifecycle
   
   override func loadView() {
@@ -61,8 +67,38 @@ class ChannelVC_MessageMentions: SBUChannelViewController {
     if let text = messageInputView.textView?.text {
       let mentionPattern = #"\B@\S+"#
       let mentionResult = matches(for: mentionPattern, in: text)
-      // let hasMentions = (mentionResult.count > 0)
       userIDsToMention = mentionResult.map { String($0.dropFirst()) }
+      guard let textStorage = messageInputView.textView?.textStorage else { return }
+      
+      func removeAttributes() {
+        textStorage.removeAttribute(.foregroundColor, range: NSMakeRange(0, textStorage.length))
+        textStorage.removeAttribute(.backgroundColor, range: NSMakeRange(0, textStorage.length))
+      }
+      
+      func addAttributes(in range: NSRange) {
+        textStorage.addAttribute(.foregroundColor, value: UIColor.blue, range: range)
+        textStorage.addAttribute(.backgroundColor, value: UIColor.systemTeal, range: range)
+      }
+      
+      if !userIDsToMention.isEmpty {
+        let mentionsCandidates = Set<String>(userIDsToMention.map { $0.lowercased() })
+        let mentions = mentionsCandidates.intersection(membersNicknames.map { $0.lowercased() })
+          
+        if !mentions.isEmpty {
+          textStorage.beginEditing()
+          removeAttributes()
+          for mention in mentions {
+            textStorage.string.ranges(of: "@\(mention)", options: .caseInsensitive).forEach { range in
+              addAttributes(in: NSRange(range, in: textStorage.string))
+            }
+          }
+          textStorage.endEditing()
+        } else {
+          removeAttributes()
+        }
+      } else {
+        removeAttributes()
+      }
     } else {
       userIDsToMention = []
     }
