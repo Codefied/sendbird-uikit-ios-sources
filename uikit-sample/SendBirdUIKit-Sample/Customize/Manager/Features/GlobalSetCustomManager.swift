@@ -93,7 +93,7 @@ extension GlobalSetCustomManager {
         SBUStringSet.ChannelSettings_Header_Title = "Settings"
         SBUStringSet.CreateChannel_Header_Title = "Create Chat"
     }
-    
+
     /// This is an example of customizing the global theme.
     static func setCustomGlobalTheme() {
         // This is a sample to change the theme of the channel list.
@@ -132,9 +132,20 @@ extension GlobalSetCustomManager {
             size: 16.0
             ) ?? UIFont()
         // ... In this way, you can add theme attributes.
+
+        let messageCellTheme = SBUMessageCellTheme()
+
+        messageCellTheme.leftBackgroundColor = .clear
+        messageCellTheme.leftPressedBackgroundColor = .clear
+        messageCellTheme.rightBackgroundColor = .clear
+        messageCellTheme.rightPressedBackgroundColor = .clear
+
+        messageCellTheme.dateBackgroundColor = .clear
+        messageCellTheme.dateTextColor = SBUColorSet.onlight02
         
         let customTheme = SBUTheme(channelListTheme: channelListTheme,
                                    channelCellTheme: channelCellTheme,
+                                   messageCellTheme: messageCellTheme,
                                    componentTheme: componentTheme)
         SBUTheme.set(theme: customTheme)
     }
